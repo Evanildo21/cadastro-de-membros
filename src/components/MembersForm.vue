@@ -66,10 +66,10 @@ export default {
       immediate: true,
       handler(newVal) {
         if (newVal) {
-          // ✅ mantém o id
+          
           this.member = { ...newVal }
         } else {
-          // ✅ evita lixo de edição anterior
+  
           this.resetForm()
         }
       }
@@ -80,13 +80,13 @@ export default {
     async saveMember() {
       try {
         if (this.isEdit) {
-          // ✅ PUT COM ID
+   
           await axios.put(
             `http://localhost:3000/members/${this.member.id}`,
             this.member
           )
         } else {
-          // ✅ POST — json-server cria o id
+          
           await axios.post(
             'http://localhost:3000/members',
             {
